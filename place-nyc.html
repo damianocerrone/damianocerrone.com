@@ -12,10 +12,15 @@ body{background:var(--paper);color:var(--ink);font:400 14px/1.55 var(--sans);
  -webkit-font-smoothing:antialiased;padding:30px 34px 84px;max-width:1060px;margin:0 auto}
 a{color:inherit;text-decoration:none}
 .top{display:flex;justify-content:space-between;align-items:baseline;
- padding-bottom:10px;border-bottom:1px solid var(--ink)}
-.name{font-size:11px;letter-spacing:.17em;text-transform:uppercase;font-weight:500}
-nav{font-size:11px;color:var(--dim);letter-spacing:.03em}
-nav a{margin-left:16px}nav a.on{color:var(--accent)}nav a:hover{color:var(--accent)}
+ padding-bottom:15px;margin-bottom:4px;border-bottom:1px solid var(--ink)}
+.name{font-size:12px;letter-spacing:.17em;text-transform:uppercase;font-weight:600}
+/* The nav is the site's spine — Damiano, 2026-08-04: make it prominent. Bigger,
+   ink-bright not dim, wider gaps, and the current page carries an accent underline. */
+nav{font-size:14px;color:var(--ink);letter-spacing:.005em;font-weight:500}
+nav a{margin-left:26px;padding-bottom:3px;border-bottom:2px solid transparent;
+ transition:color .15s,border-color .15s}
+nav a.on{color:var(--accent);border-color:var(--accent)}
+nav a:hover{color:var(--accent)}
 .bio{font-size:clamp(19px,2.05vw,25px);line-height:1.52;letter-spacing:-.012em;
  margin:46px 0 18px;font-weight:400}
 .bio .l{color:var(--accent);border-bottom:1px solid color-mix(in srgb,var(--accent) 38%,transparent);
@@ -44,7 +49,8 @@ footer{margin-top:60px;padding-top:10px;border-top:1px solid var(--rule);display
 h2{font:400 11px var(--mono);letter-spacing:.15em;text-transform:uppercase;color:var(--dim);
  margin:38px 0 8px;padding-bottom:6px;border-bottom:1px solid var(--rule)}
 @media(max-width:640px){.to{display:none}body{padding:24px 20px 60px}
- .top{flex-direction:column;gap:10px;align-items:flex-start}nav a{margin:0 14px 0 0}}
+ .top{flex-direction:column;gap:12px;align-items:flex-start}
+ nav{font-size:15px}nav a{margin:0 20px 0 0}}
 
 .gr{display:grid;grid-template-columns:repeat(auto-fill,minmax(250px,1fr));gap:5px}
 .cell{position:relative;aspect-ratio:4/3;overflow:hidden;background:#101a24;display:block;
@@ -65,20 +71,49 @@ h2{font:400 11px var(--mono);letter-spacing:.15em;text-transform:uppercase;color
 .empty h3{font:400 19px var(--sans);margin-bottom:10px}
 .empty p{color:var(--dim);font-size:13.5px;line-height:1.7;max-width:64ch}
 .empty code{font:11px var(--mono);color:var(--accent)}
-/* entry: the contact sheet — every fourth tile doubled for rhythm */
-.sheet{display:grid;grid-template-columns:repeat(auto-fill,minmax(200px,1fr));
- grid-auto-flow:dense;gap:4px}
-.sh{position:relative;aspect-ratio:1;overflow:hidden;background:#101a24;display:block}
-.sh.big{grid-column:span 2;grid-row:span 2}
-.sh img{width:100%;height:100%;object-fit:cover;filter:grayscale(.4) brightness(.8);
- transition:filter .35s,transform .7s cubic-bezier(.2,.7,.3,1)}
-.sh:hover img{filter:none;transform:scale(1.04)}
-.sh i{position:absolute;right:10px;bottom:8px;font:10px var(--mono);font-style:normal;
- color:var(--accent);opacity:0;transition:opacity .2s;text-shadow:0 1px 6px rgba(0,0,0,.9)}
-.sh:hover i{opacity:1}
-@media(max-width:560px){.sh.big{grid-column:span 1;grid-row:span 1}}
+/* entry: ONE photograph at a time, back and forth (Damiano, 2026-08-04) */
+.pv-head{display:flex;align-items:baseline;gap:14px;margin:0 0 16px;flex-wrap:wrap}
+.pv-yr{font:10px var(--mono);letter-spacing:.13em;text-transform:uppercase;color:var(--dim)}
+.pv{position:relative;display:flex;align-items:center;justify-content:center;
+ background:#0b131b;border:1px solid var(--rule);overflow:hidden}
+.pv-img{display:block;max-width:100%;max-height:80vh;object-fit:contain;cursor:pointer;
+ user-select:none;-webkit-user-select:none}
+.pv-edge{position:absolute;top:0;bottom:0;width:26%;border:0;background:transparent;
+ color:var(--hovink);font:300 42px/1 var(--sans);cursor:pointer;opacity:0;z-index:3;
+ display:flex;align-items:center;transition:opacity .2s;-webkit-tap-highlight-color:transparent}
+.pv-prev{left:0;justify-content:flex-start;padding-left:16px}
+.pv-next{right:0;justify-content:flex-end;padding-right:16px}
+.pv:hover .pv-edge{opacity:.45}.pv-edge:hover{opacity:1}
+.pv-prev:hover{background:linear-gradient(90deg,rgba(9,15,21,.5),transparent)}
+.pv-next:hover{background:linear-gradient(270deg,rgba(9,15,21,.5),transparent)}
+.pv-bar{display:flex;align-items:center;justify-content:center;gap:22px;margin-top:14px}
+.pv-btn{background:none;border:1px solid var(--rule);color:var(--ink);font:10px var(--mono);
+ letter-spacing:.11em;text-transform:uppercase;padding:9px 15px;cursor:pointer;transition:.15s}
+.pv-btn:hover{border-color:var(--accent);color:var(--accent)}
+.pv-count{font:11px var(--mono);letter-spacing:.16em;color:var(--dim);min-width:78px;text-align:center}
+@media(max-width:560px){.pv-edge{opacity:.35;width:32%;font-size:32px}.pv-img{max-height:68vh}}
 </style></head><body>
 <div class="top"><div class="name"><a href="index.html">Damiano Cerrone</a></div><nav><a class="" href="index.html">index</a><a class="" href="about.html">about</a><a class="" href="media.html">media</a><a class="" href="everything.html">everything</a><a class="on" href="places.html">places</a></nav></div>
-<p class="sig" style="margin:34px 0 4px"><a href="places.html" style="color:var(--accent)">← Places</a></p><h1 class="bio" style="margin:0 0 6px">NYC.</h1><p class="sig" style="margin:0 0 26px">2024</p><div class="sheet"><a class="sh big" href="assets/pl-nyc-000-full.jpg"><img src="assets/pl-nyc-000.jpg" alt="NYC" loading="lazy"><i>01</i></a><a class="sh" href="assets/pl-nyc-001-full.jpg"><img src="assets/pl-nyc-001.jpg" alt="NYC" loading="lazy"><i>02</i></a><a class="sh" href="assets/pl-nyc-002-full.jpg"><img src="assets/pl-nyc-002.jpg" alt="NYC" loading="lazy"><i>03</i></a><a class="sh" href="assets/pl-nyc-003-full.jpg"><img src="assets/pl-nyc-003.jpg" alt="NYC" loading="lazy"><i>04</i></a><a class="sh big" href="assets/pl-nyc-004-full.jpg"><img src="assets/pl-nyc-004.jpg" alt="NYC" loading="lazy"><i>05</i></a><a class="sh" href="assets/pl-nyc-005-full.jpg"><img src="assets/pl-nyc-005.jpg" alt="NYC" loading="lazy"><i>06</i></a><a class="sh" href="assets/pl-nyc-006-full.jpg"><img src="assets/pl-nyc-006.jpg" alt="NYC" loading="lazy"><i>07</i></a><a class="sh" href="assets/pl-nyc-007-full.jpg"><img src="assets/pl-nyc-007.jpg" alt="NYC" loading="lazy"><i>08</i></a><a class="sh big" href="assets/pl-nyc-008-full.jpg"><img src="assets/pl-nyc-008.jpg" alt="NYC" loading="lazy"><i>09</i></a><a class="sh" href="assets/pl-nyc-009-full.jpg"><img src="assets/pl-nyc-009.jpg" alt="NYC" loading="lazy"><i>10</i></a><a class="sh" href="assets/pl-nyc-010-full.jpg"><img src="assets/pl-nyc-010.jpg" alt="NYC" loading="lazy"><i>11</i></a><a class="sh" href="assets/pl-nyc-011-full.jpg"><img src="assets/pl-nyc-011.jpg" alt="NYC" loading="lazy"><i>12</i></a><a class="sh big" href="assets/pl-nyc-012-full.jpg"><img src="assets/pl-nyc-012.jpg" alt="NYC" loading="lazy"><i>13</i></a><a class="sh" href="assets/pl-nyc-013-full.jpg"><img src="assets/pl-nyc-013.jpg" alt="NYC" loading="lazy"><i>14</i></a><a class="sh" href="assets/pl-nyc-014-full.jpg"><img src="assets/pl-nyc-014.jpg" alt="NYC" loading="lazy"><i>15</i></a><a class="sh" href="assets/pl-nyc-015-full.jpg"><img src="assets/pl-nyc-015.jpg" alt="NYC" loading="lazy"><i>16</i></a><a class="sh big" href="assets/pl-nyc-016-full.jpg"><img src="assets/pl-nyc-016.jpg" alt="NYC" loading="lazy"><i>17</i></a><a class="sh" href="assets/pl-nyc-017-full.jpg"><img src="assets/pl-nyc-017.jpg" alt="NYC" loading="lazy"><i>18</i></a><a class="sh" href="assets/pl-nyc-018-full.jpg"><img src="assets/pl-nyc-018.jpg" alt="NYC" loading="lazy"><i>19</i></a><a class="sh" href="assets/pl-nyc-019-full.jpg"><img src="assets/pl-nyc-019.jpg" alt="NYC" loading="lazy"><i>20</i></a><a class="sh big" href="assets/pl-nyc-020-full.jpg"><img src="assets/pl-nyc-020.jpg" alt="NYC" loading="lazy"><i>21</i></a><a class="sh" href="assets/pl-nyc-021-full.jpg"><img src="assets/pl-nyc-021.jpg" alt="NYC" loading="lazy"><i>22</i></a><a class="sh" href="assets/pl-nyc-022-full.jpg"><img src="assets/pl-nyc-022.jpg" alt="NYC" loading="lazy"><i>23</i></a><a class="sh" href="assets/pl-nyc-023-full.jpg"><img src="assets/pl-nyc-023.jpg" alt="NYC" loading="lazy"><i>24</i></a><a class="sh big" href="assets/pl-nyc-024-full.jpg"><img src="assets/pl-nyc-024.jpg" alt="NYC" loading="lazy"><i>25</i></a><a class="sh" href="assets/pl-nyc-025-full.jpg"><img src="assets/pl-nyc-025.jpg" alt="NYC" loading="lazy"><i>26</i></a><a class="sh" href="assets/pl-nyc-026-full.jpg"><img src="assets/pl-nyc-026.jpg" alt="NYC" loading="lazy"><i>27</i></a><a class="sh" href="assets/pl-nyc-027-full.jpg"><img src="assets/pl-nyc-027.jpg" alt="NYC" loading="lazy"><i>28</i></a><a class="sh big" href="assets/pl-nyc-028-full.jpg"><img src="assets/pl-nyc-028.jpg" alt="NYC" loading="lazy"><i>29</i></a><a class="sh" href="assets/pl-nyc-029-full.jpg"><img src="assets/pl-nyc-029.jpg" alt="NYC" loading="lazy"><i>30</i></a></div>
+<p class="sig" style="margin:34px 0 4px"><a href="places.html" style="color:var(--accent)">← Places</a></p><div class="pv-head"><h1 class="bio" style="margin:0">NYC.</h1><span class="pv-yr">2024</span></div><div class="pv"><button class="pv-edge pv-prev" id="pvPrev" aria-label="Previous photograph">‹</button><img class="pv-img" id="pvImg" src="assets/pl-nyc-000.jpg" alt="NYC"><button class="pv-edge pv-next" id="pvNext" aria-label="Next photograph">›</button></div><div class="pv-bar"><button class="pv-btn" id="pvPrevB">← Prev</button><span class="pv-count" id="pvCount"></span><button class="pv-btn" id="pvNextB">Next →</button></div><script>
+(function(){
+ var A=["assets/pl-nyc-000.jpg", "assets/pl-nyc-001.jpg", "assets/pl-nyc-002.jpg", "assets/pl-nyc-003.jpg", "assets/pl-nyc-004.jpg", "assets/pl-nyc-005.jpg", "assets/pl-nyc-006.jpg", "assets/pl-nyc-007.jpg", "assets/pl-nyc-008.jpg", "assets/pl-nyc-009.jpg", "assets/pl-nyc-010.jpg", "assets/pl-nyc-011.jpg", "assets/pl-nyc-012.jpg", "assets/pl-nyc-013.jpg", "assets/pl-nyc-014.jpg", "assets/pl-nyc-015.jpg", "assets/pl-nyc-016.jpg", "assets/pl-nyc-017.jpg", "assets/pl-nyc-018.jpg", "assets/pl-nyc-019.jpg", "assets/pl-nyc-020.jpg", "assets/pl-nyc-021.jpg", "assets/pl-nyc-022.jpg", "assets/pl-nyc-023.jpg", "assets/pl-nyc-024.jpg", "assets/pl-nyc-025.jpg", "assets/pl-nyc-026.jpg", "assets/pl-nyc-027.jpg", "assets/pl-nyc-028.jpg", "assets/pl-nyc-029.jpg"],i=0,img=document.getElementById('pvImg'),cnt=document.getElementById('pvCount');
+ function pad(n){return (n<10?'0':'')+n;}
+ function go(n){i=(n%A.length+A.length)%A.length;img.src=A[i];
+  cnt.textContent=pad(i+1)+' / '+pad(A.length);
+  [1,-1].forEach(function(d){var p=new Image();p.src=A[(i+d+A.length)%A.length];});}
+ function nx(){go(i+1);}function pv(){go(i-1);}
+ ['pvNext','pvNextB'].forEach(function(id){document.getElementById(id).onclick=nx;});
+ ['pvPrev','pvPrevB'].forEach(function(id){document.getElementById(id).onclick=pv;});
+ img.onclick=nx;
+ addEventListener('keydown',function(e){
+  if(e.key==='ArrowRight')nx();else if(e.key==='ArrowLeft')pv();});
+ var sx=null;
+ img.addEventListener('touchstart',function(e){sx=e.touches[0].clientX;},{passive:true});
+ img.addEventListener('touchend',function(e){
+  if(sx===null)return;var dx=e.changedTouches[0].clientX-sx;
+  if(Math.abs(dx)>40){e.preventDefault();dx<0?nx():pv();}sx=null;});
+ go(0);
+})();
+</script>
 <footer><span>Mechelininkatu 23, Helsinki</span><span>damianocerrone.com</span></footer>
 </body></html>
