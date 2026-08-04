@@ -1,6 +1,6 @@
 <!doctype html><html lang="en"><head><meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
-<title>London — Photographs — Damiano Cerrone</title><meta name="description" content="London (2025 · 2026) — photographs by Damiano Cerrone. 31 images."><link rel="canonical" href="https://damianocerrone.com/place-london.html"><meta name="author" content="Damiano Cerrone"><link rel="icon" href="/favicon.svg" type="image/svg+xml"><meta property="og:type" content="website"><meta property="og:site_name" content="Damiano Cerrone"><meta property="og:title" content="London — Photographs — Damiano Cerrone"><meta property="og:description" content="London (2025 · 2026) — photographs by Damiano Cerrone. 31 images."><meta property="og:url" content="https://damianocerrone.com/place-london.html"><meta property="og:image" content="https://damianocerrone.com/assets/pl-london-000.jpg"><meta name="twitter:card" content="summary_large_image"><meta name="twitter:title" content="London — Photographs — Damiano Cerrone"><meta name="twitter:description" content="London (2025 · 2026) — photographs by Damiano Cerrone. 31 images."><meta name="twitter:image" content="https://damianocerrone.com/assets/pl-london-000.jpg"><style>
+<title>London — Photographs — Damiano Cerrone</title><meta name="description" content="London (2025 · 2026) — photographs by Damiano Cerrone. 31 images."><link rel="canonical" href="https://damianocerrone.com/place-london.html"><meta name="author" content="Damiano Cerrone"><link rel="icon" href="/favicon.svg" type="image/svg+xml"><meta property="og:type" content="website"><meta property="og:site_name" content="Damiano Cerrone"><meta property="og:locale" content="en_GB"><meta property="og:title" content="London — Photographs — Damiano Cerrone"><meta property="og:description" content="London (2025 · 2026) — photographs by Damiano Cerrone. 31 images."><meta property="og:url" content="https://damianocerrone.com/place-london.html"><meta property="og:image" content="https://damianocerrone.com/assets/pl-london-000.jpg"><meta name="twitter:card" content="summary_large_image"><meta name="twitter:title" content="London — Photographs — Damiano Cerrone"><meta name="twitter:description" content="London (2025 · 2026) — photographs by Damiano Cerrone. 31 images."><meta name="twitter:image" content="https://damianocerrone.com/assets/pl-london-000.jpg"><style>
 :root{--paper:#17222E;--ink:#F4E3DA;--dim:#8791A1;--rule:#2A3D50;
  --accent:#F8B195;--accent2:#F67280;--hov:#6C5B7B;--hovink:#FBEDE6;
  --mono:ui-monospace,'SF Mono',Menlo,monospace;
@@ -48,6 +48,13 @@ footer{margin-top:60px;padding-top:10px;border-top:1px solid var(--rule);display
  justify-content:space-between;font:10px var(--mono);color:var(--dim)}
 h2{font:400 11px var(--mono);letter-spacing:.15em;text-transform:uppercase;color:var(--dim);
  margin:38px 0 8px;padding-bottom:6px;border-bottom:1px solid var(--rule)}
+/* Visually hidden, still read by screen readers and search engines. The home and
+   About heroes are a prose paragraph by design — making that long bio the H1 would
+   be a bad heading, and having none at all left the two most important pages with
+   no H1 (found in the 2026-08-04 SEO audit). This states the page's subject in the
+   same words as its <title>, so it is a description, never cloaking. */
+.vh{position:absolute;width:1px;height:1px;margin:-1px;padding:0;overflow:hidden;
+ clip:rect(0 0 0 0);clip-path:inset(50%);white-space:nowrap;border:0}
 @media(max-width:640px){.to{display:none}body{padding:24px 20px 60px}
  .top{flex-direction:column;gap:12px;align-items:flex-start}
  nav{font-size:15px}nav a{margin:0 20px 0 0}}
