@@ -22,13 +22,15 @@ nav a{margin-left:26px;padding-bottom:3px;border-bottom:2px solid transparent;
 nav a.on{color:var(--accent);border-color:var(--accent)}
 nav a:hover{color:var(--accent)}
 .bio{font-size:clamp(19px,2.05vw,25px);line-height:1.52;letter-spacing:-.012em;
- margin:46px 0 0;font-weight:500}
+ margin:46px 0 18px;font-weight:400}
+.bio .now{font-weight:600}
+/* 300 is Light in Helvetica Neue; 600 has no cut there and resolves up to Bold.
+   Arial has neither, so both halves fall back to Regular — the split is an
+   Apple-side refinement, which Damiano knows and chose. */
+.bio .then{font-weight:300}
 .bio .l{color:var(--accent);border-bottom:1px solid color-mix(in srgb,var(--accent) 38%,transparent);
  padding-bottom:1px;transition:border-color .14s,background .14s}
 .bio .l:hover{border-color:var(--accent);background:color-mix(in srgb,var(--accent) 14%,transparent)}
-/* The record behind the present tense. Same size, same ink as the tier above —
-   weight is the only difference, at Damiano's direction (2026-08-26). */
-.bio.then{font-weight:400;margin:0 0 18px}
 .sig{font:10px var(--mono);letter-spacing:.13em;text-transform:uppercase;color:var(--dim);margin-bottom:50px}
 .sig a{color:var(--accent2)}.sig a:hover{border-bottom:1px solid var(--accent2)}
 .hd{font:10px var(--mono);letter-spacing:.13em;text-transform:uppercase;color:var(--dim);
