@@ -23,6 +23,11 @@ nav a.on{color:var(--accent);border-color:var(--accent)}
 nav a:hover{color:var(--accent)}
 .bio{font-size:clamp(19px,2.05vw,25px);line-height:1.52;letter-spacing:-.012em;
  margin:46px 0 18px;font-weight:400}
+.bio .now{font-weight:600}
+/* 300 is Light in Helvetica Neue; 600 has no cut there and resolves up to Bold.
+   Arial has neither, so both halves fall back to Regular — the split is an
+   Apple-side refinement, which Damiano knows and chose. */
+.bio .then{font-weight:300}
 .bio .l{color:var(--accent);border-bottom:1px solid color-mix(in srgb,var(--accent) 38%,transparent);
  padding-bottom:1px;transition:border-color .14s,background .14s}
 .bio .l:hover{border-color:var(--accent);background:color-mix(in srgb,var(--accent) 14%,transparent)}
@@ -99,28 +104,45 @@ h2{font:400 11px var(--mono);letter-spacing:.15em;text-transform:uppercase;color
 .pv-btn:hover{border-color:var(--accent);color:var(--accent)}
 .pv-count{font:11px var(--mono);letter-spacing:.16em;color:var(--dim);min-width:78px;text-align:center}
 @media(max-width:560px){.pv-edge{opacity:.35;width:32%;font-size:32px}.pv-img{max-height:68vh}}
+/* Gallery = every photograph as a real <img> in the DOM, so a crawler sees the
+   whole set (the page used to ship one <img> and hide the rest in a JS array).
+   Progressive enhancement: with no JS every photo shows, stacked; the viewer
+   script adds .is-carousel and shows one at a time. */
+.pv{flex-direction:column;gap:5px}
+.pv-edge,.pv-bar{display:none}
+.pv.is-carousel{gap:0}
+.pv.is-carousel .pv-img{display:none}
+.pv.is-carousel .pv-img.is-on{display:block}
+.pv.is-carousel .pv-edge{display:flex}
+.pv.is-carousel ~ .pv-bar{display:flex}
 </style></head><body>
 <div class="top"><div class="name"><a href="index.html">Damiano Cerrone</a></div><nav><a class="" href="index.html">index</a><a class="" href="about.html">about</a><a class="" href="media.html">media</a><a class="" href="everything.html">everything</a><a class="on" href="places.html">places</a></nav></div>
-<p class="sig" style="margin:34px 0 4px"><a href="places.html" style="color:var(--accent)">← Places</a></p><div class="pv-head"><h1 class="bio" style="margin:0">NYC Chinatown.</h1><span class="pv-yr">2015</span></div><div class="pv"><button class="pv-edge pv-prev" id="pvPrev" aria-label="Previous photograph">‹</button><img class="pv-img" id="pvImg" src="assets/pl-nyc-chinatown-000.jpg" alt="NYC Chinatown, photograph by Damiano Cerrone"><button class="pv-edge pv-next" id="pvNext" aria-label="Next photograph">›</button></div><div class="pv-bar"><button class="pv-btn" id="pvPrevB">← Prev</button><span class="pv-count" id="pvCount"></span><button class="pv-btn" id="pvNextB">Next →</button></div><script>
+<p class="sig" style="margin:34px 0 4px"><a href="places.html" style="color:var(--accent)">← Places</a></p><div class="pv-head"><h1 class="bio" style="margin:0">NYC Chinatown.</h1><span class="pv-yr">2015</span></div><div class="pv"><button class="pv-edge pv-prev" id="pvPrev" aria-label="Previous photograph">‹</button><img class="pv-img is-on" src="assets/pl-nyc-chinatown-000.jpg" alt="NYC Chinatown — photograph 1 of 18 by Damiano Cerrone" loading="eager" decoding="async"><img class="pv-img" src="assets/pl-nyc-chinatown-001.jpg" alt="NYC Chinatown — photograph 2 of 18 by Damiano Cerrone" loading="lazy" decoding="async"><img class="pv-img" src="assets/pl-nyc-chinatown-002.jpg" alt="NYC Chinatown — photograph 3 of 18 by Damiano Cerrone" loading="lazy" decoding="async"><img class="pv-img" src="assets/pl-nyc-chinatown-003.jpg" alt="NYC Chinatown — photograph 4 of 18 by Damiano Cerrone" loading="lazy" decoding="async"><img class="pv-img" src="assets/pl-nyc-chinatown-004.jpg" alt="NYC Chinatown — photograph 5 of 18 by Damiano Cerrone" loading="lazy" decoding="async"><img class="pv-img" src="assets/pl-nyc-chinatown-005.jpg" alt="NYC Chinatown — photograph 6 of 18 by Damiano Cerrone" loading="lazy" decoding="async"><img class="pv-img" src="assets/pl-nyc-chinatown-006.jpg" alt="NYC Chinatown — photograph 7 of 18 by Damiano Cerrone" loading="lazy" decoding="async"><img class="pv-img" src="assets/pl-nyc-chinatown-007.jpg" alt="NYC Chinatown — photograph 8 of 18 by Damiano Cerrone" loading="lazy" decoding="async"><img class="pv-img" src="assets/pl-nyc-chinatown-008.jpg" alt="NYC Chinatown — photograph 9 of 18 by Damiano Cerrone" loading="lazy" decoding="async"><img class="pv-img" src="assets/pl-nyc-chinatown-009.jpg" alt="NYC Chinatown — photograph 10 of 18 by Damiano Cerrone" loading="lazy" decoding="async"><img class="pv-img" src="assets/pl-nyc-chinatown-010.jpg" alt="NYC Chinatown — photograph 11 of 18 by Damiano Cerrone" loading="lazy" decoding="async"><img class="pv-img" src="assets/pl-nyc-chinatown-011.jpg" alt="NYC Chinatown — photograph 12 of 18 by Damiano Cerrone" loading="lazy" decoding="async"><img class="pv-img" src="assets/pl-nyc-chinatown-012.jpg" alt="NYC Chinatown — photograph 13 of 18 by Damiano Cerrone" loading="lazy" decoding="async"><img class="pv-img" src="assets/pl-nyc-chinatown-013.jpg" alt="NYC Chinatown — photograph 14 of 18 by Damiano Cerrone" loading="lazy" decoding="async"><img class="pv-img" src="assets/pl-nyc-chinatown-014.jpg" alt="NYC Chinatown — photograph 15 of 18 by Damiano Cerrone" loading="lazy" decoding="async"><img class="pv-img" src="assets/pl-nyc-chinatown-015.jpg" alt="NYC Chinatown — photograph 16 of 18 by Damiano Cerrone" loading="lazy" decoding="async"><img class="pv-img" src="assets/pl-nyc-chinatown-016.jpg" alt="NYC Chinatown — photograph 17 of 18 by Damiano Cerrone" loading="lazy" decoding="async"><img class="pv-img" src="assets/pl-nyc-chinatown-017.jpg" alt="NYC Chinatown — photograph 18 of 18 by Damiano Cerrone" loading="lazy" decoding="async"><button class="pv-edge pv-next" id="pvNext" aria-label="Next photograph">›</button></div><div class="pv-bar"><button class="pv-btn" id="pvPrevB">← Prev</button><span class="pv-count" id="pvCount"></span><button class="pv-btn" id="pvNextB">Next →</button></div><script>
 (function(){
- var A=["assets/pl-nyc-chinatown-000.jpg", "assets/pl-nyc-chinatown-001.jpg", "assets/pl-nyc-chinatown-002.jpg", "assets/pl-nyc-chinatown-003.jpg", "assets/pl-nyc-chinatown-004.jpg", "assets/pl-nyc-chinatown-005.jpg", "assets/pl-nyc-chinatown-006.jpg", "assets/pl-nyc-chinatown-007.jpg", "assets/pl-nyc-chinatown-008.jpg", "assets/pl-nyc-chinatown-009.jpg", "assets/pl-nyc-chinatown-010.jpg", "assets/pl-nyc-chinatown-011.jpg", "assets/pl-nyc-chinatown-012.jpg", "assets/pl-nyc-chinatown-013.jpg", "assets/pl-nyc-chinatown-014.jpg", "assets/pl-nyc-chinatown-015.jpg", "assets/pl-nyc-chinatown-016.jpg", "assets/pl-nyc-chinatown-017.jpg"],i=0,img=document.getElementById('pvImg'),cnt=document.getElementById('pvCount');
+ var pv=document.querySelector('.pv');
+ if(!pv)return;
+ var imgs=[].slice.call(pv.querySelectorAll('.pv-img')),
+     cnt=document.getElementById('pvCount'),i=0;
+ if(imgs.length<2){if(cnt)cnt.textContent='01 / 01';return;}
+ pv.classList.add('is-carousel');
  function pad(n){return (n<10?'0':'')+n;}
- function go(n){i=(n%A.length+A.length)%A.length;img.src=A[i];
-  cnt.textContent=pad(i+1)+' / '+pad(A.length);
-  [1,-1].forEach(function(d){var p=new Image();p.src=A[(i+d+A.length)%A.length];});}
- function nx(){go(i+1);}function pv(){go(i-1);}
- ['pvNext','pvNextB'].forEach(function(id){document.getElementById(id).onclick=nx;});
- ['pvPrev','pvPrevB'].forEach(function(id){document.getElementById(id).onclick=pv;});
- img.onclick=nx;
+ function go(n){var N=imgs.length;i=(n%N+N)%N;
+  imgs.forEach(function(el,k){el.classList.toggle('is-on',k===i);});
+  if(cnt)cnt.textContent=pad(i+1)+' / '+pad(N);
+  [1,-1].forEach(function(d){var p=new Image();p.src=imgs[(i+d+N)%N].src;});}
+ function nx(){go(i+1);}function pv2(){go(i-1);}
+ ['pvNext','pvNextB'].forEach(function(id){var b=document.getElementById(id);if(b)b.onclick=nx;});
+ ['pvPrev','pvPrevB'].forEach(function(id){var b=document.getElementById(id);if(b)b.onclick=pv2;});
+ imgs.forEach(function(el){el.onclick=nx;});
  addEventListener('keydown',function(e){
-  if(e.key==='ArrowRight')nx();else if(e.key==='ArrowLeft')pv();});
+  if(e.key==='ArrowRight')nx();else if(e.key==='ArrowLeft')pv2();});
  var sx=null;
- img.addEventListener('touchstart',function(e){sx=e.touches[0].clientX;},{passive:true});
- img.addEventListener('touchend',function(e){
+ pv.addEventListener('touchstart',function(e){sx=e.touches[0].clientX;},{passive:true});
+ pv.addEventListener('touchend',function(e){
   if(sx===null)return;var dx=e.changedTouches[0].clientX-sx;
-  if(Math.abs(dx)>40){e.preventDefault();dx<0?nx():pv();}sx=null;});
+  if(Math.abs(dx)>40){e.preventDefault();dx<0?nx():pv2();}sx=null;});
  go(0);
 })();
-</script>
+</script><script type="application/ld+json">{"@context": "https://schema.org", "@type": "ImageGallery", "name": "NYC Chinatown — photographs by Damiano Cerrone", "description": "NYC Chinatown (2015) — photographs by Damiano Cerrone. 18 images.", "url": "https://damianocerrone.com/place-nyc-chinatown.html", "author": {"@type": "Person", "name": "Damiano Cerrone"}, "image": ["https://damianocerrone.com/assets/pl-nyc-chinatown-000.jpg", "https://damianocerrone.com/assets/pl-nyc-chinatown-001.jpg", "https://damianocerrone.com/assets/pl-nyc-chinatown-002.jpg", "https://damianocerrone.com/assets/pl-nyc-chinatown-003.jpg", "https://damianocerrone.com/assets/pl-nyc-chinatown-004.jpg", "https://damianocerrone.com/assets/pl-nyc-chinatown-005.jpg", "https://damianocerrone.com/assets/pl-nyc-chinatown-006.jpg", "https://damianocerrone.com/assets/pl-nyc-chinatown-007.jpg", "https://damianocerrone.com/assets/pl-nyc-chinatown-008.jpg", "https://damianocerrone.com/assets/pl-nyc-chinatown-009.jpg", "https://damianocerrone.com/assets/pl-nyc-chinatown-010.jpg", "https://damianocerrone.com/assets/pl-nyc-chinatown-011.jpg", "https://damianocerrone.com/assets/pl-nyc-chinatown-012.jpg", "https://damianocerrone.com/assets/pl-nyc-chinatown-013.jpg", "https://damianocerrone.com/assets/pl-nyc-chinatown-014.jpg", "https://damianocerrone.com/assets/pl-nyc-chinatown-015.jpg", "https://damianocerrone.com/assets/pl-nyc-chinatown-016.jpg", "https://damianocerrone.com/assets/pl-nyc-chinatown-017.jpg"]}</script>
 <footer><span>Mechelininkatu 23, Helsinki</span><span><a href="sitemap.html">sitemap</a> &nbsp;·&nbsp; damianocerrone.com</span></footer>
 </body></html>
