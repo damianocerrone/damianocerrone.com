@@ -72,8 +72,12 @@ h2{font:400 11px var(--mono);letter-spacing:.15em;text-transform:uppercase;color
  nav{font-size:15px}nav a{margin:0 20px 0 0}}
 
 .recent{margin-top:4px}
+/* The tag sits right after the year (flex order), in a FIXED-WIDTH slot wide
+   enough for the longest tag ("Publication"), text centred — so every title
+   starts at the same x and the titles read as a clean column (Damiano: "the text
+   is not vertically aligned"). */
 .recent .yr{order:0}
-.recent .rtag{order:1;margin-right:2px}
+.recent .rtag{order:1;min-width:96px;text-align:center}
 .recent .ttl{order:2}
 .recent .to{order:3}
 </style></head><body>
