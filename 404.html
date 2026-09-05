@@ -45,6 +45,13 @@ nav a:hover{color:var(--accent)}
 .to{font:10px var(--mono);color:var(--dim);white-space:nowrap}
 .row.inert{color:var(--dim)}.row.inert .yr{color:var(--dim)}
 .row.inert:hover{background:transparent;color:var(--dim);cursor:default}
+/* The type tag — a quiet pill naming what kind of thing the row is. Sits between
+   the title and the outbound label; never shrinks, never wraps. */
+.rtag{flex:none;align-self:center;font:9px var(--mono);letter-spacing:.09em;
+ text-transform:uppercase;color:var(--dim);border-radius:100px;padding:2px 8px;
+ white-space:nowrap;background:color-mix(in srgb,var(--ink) 8%,transparent)}
+.row:hover .rtag{color:var(--hovink);background:color-mix(in srgb,var(--hovink) 15%,transparent)}
+.row.inert:hover .rtag{color:var(--dim);background:color-mix(in srgb,var(--ink) 8%,transparent)}
 .more{display:inline-block;margin-top:22px;font:10px var(--mono);letter-spacing:.13em;
  text-transform:uppercase;color:var(--accent);border-bottom:1px solid var(--accent);padding-bottom:2px}
 .note{font:10px var(--mono);color:var(--dim);line-height:1.7;margin-top:16px;
@@ -64,7 +71,7 @@ h2{font:400 11px var(--mono);letter-spacing:.15em;text-transform:uppercase;color
  .top{flex-direction:column;gap:12px;align-items:flex-start}
  nav{font-size:15px}nav a{margin:0 20px 0 0}}
 </style></head><body>
-<div class="top"><div class="name"><a href="index.html">Damiano Cerrone</a></div><nav><a class="" href="index.html">index</a><a class="" href="about.html">about</a><a class="" href="media.html">media</a><a class="" href="everything.html">everything</a><a class="" href="places.html">places</a></nav></div>
-<h1 class="bio" style="margin:46px 0 14px">Not here.</h1><p class="sig" style="margin-bottom:8px">The page you asked for does not exist — it may have been renamed.</p><p class="sig"><a href="index.html" style="color:var(--accent)">index</a> &nbsp;·&nbsp; <a href="about.html" style="color:var(--accent)">about</a> &nbsp;·&nbsp; <a href="media.html" style="color:var(--accent)">media</a> &nbsp;·&nbsp; <a href="everything.html" style="color:var(--accent)">everything</a> &nbsp;·&nbsp; <a href="places.html" style="color:var(--accent)">places</a></p>
+<div class="top"><div class="name"><a href="index.html">Damiano Cerrone</a></div><nav><a class="" href="index.html">index</a><a class="" href="about.html">about</a><a class="" href="everything.html">everything</a><a class="" href="places.html">places</a></nav></div>
+<h1 class="bio" style="margin:46px 0 14px">Not here.</h1><p class="sig" style="margin-bottom:8px">The page you asked for does not exist — it may have been renamed.</p><p class="sig"><a href="index.html" style="color:var(--accent)">index</a> &nbsp;·&nbsp; <a href="about.html" style="color:var(--accent)">about</a> &nbsp;·&nbsp; <a href="everything.html" style="color:var(--accent)">everything</a> &nbsp;·&nbsp; <a href="places.html" style="color:var(--accent)">places</a></p>
 <footer><span>Mechelininkatu 23, Helsinki</span><span><a href="sitemap.html">sitemap</a> &nbsp;·&nbsp; damianocerrone.com</span></footer>
 </body></html>
